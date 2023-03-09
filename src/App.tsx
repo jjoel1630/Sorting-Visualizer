@@ -58,7 +58,8 @@ function App() {
 					} else {
 						setSorting(false);
 						setCompleted(true);
-					}
+                    }
+
 				}, speed);
 			})(0);
 		};
@@ -80,6 +81,10 @@ function App() {
 					setCompleted(true);
 			  })();
 	};
+
+    const stopSorting = () => {
+        window.location.reload();
+    }
 
 	useEffect(() => setArray([...genArray()]), [length]);
 	useEffect(() => setArray([...genArray()]), []);
@@ -143,6 +148,9 @@ function App() {
 				</button>
 				<button onClick={() => setArray([...genArray()])} disabled={sorting}>
 					Generate New Array
+				</button>
+                <button onClick={stopSorting}>
+                    Stop Sorting
 				</button>
 			</div>
 			<div className="array-container">
